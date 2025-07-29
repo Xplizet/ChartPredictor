@@ -1,4 +1,4 @@
-# GUI Framework
+# GUI Framework - Required for desktop application
 PyQt6==6.6.1
 PyQt6-Qt6==6.6.1
 
@@ -19,12 +19,3 @@ loguru==0.7.2
 
 # Export functionality
 reportlab==4.2.5
-
-# Testing
-pytest==7.4.3
-pytest-qt==4.2.0
-
-# Development
-black==23.12.1
-flake8==6.1.0
-mypy==1.8.0

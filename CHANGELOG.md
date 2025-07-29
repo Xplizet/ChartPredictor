@@ -70,6 +70,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - **Fixed** backtest progress dialog not properly closing after completion - replaced QMessageBox with proper QDialog cleanup
 - **Updated** GitHub Actions workflow to use `actions/upload-artifact@v4` (deprecated v3 was causing CI failures)
 - **Fixed** CI dependency installation failures by adding TA-Lib system dependencies for Linux/macOS and making it optional on Windows
+- **Enhanced** CI with PyQt6 system dependencies, verbose pip output, and removed duplicate dependencies causing conflicts
 
 ### 📈 **Performance & Reliability**
 - **Optimized** pattern rendering for large datasets (tested with 764+ patterns)
