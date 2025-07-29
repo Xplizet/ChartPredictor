@@ -3,6 +3,12 @@
 ## Overview
 ChartPredictor is a professional desktop application that provides real-time market data analysis, advanced pattern detection, and intelligent trading signals. Built with modern Python technologies, it offers comprehensive technical analysis, price predictions, and risk management tools for traders and investors.
 
+## 📸 Application Preview
+
+![ChartPredictor Interface](screenshot.png)
+
+*ChartPredictor's intuitive desktop interface showing live market analysis, pattern detection, technical indicators, and trading signals in a clean, professional layout.*
+
 ## 🚀 Key Features
 
 ### 📊 Live Market Data Analysis

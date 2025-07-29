@@ -285,6 +285,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - **Updated** requirements.txt with new dependencies
 - **Removed** image processing dependencies
 
+### 📚 **Documentation & Project Organization**
+- **Updated** all GitHub URLs to use new username 'xplizet' across documentation files
+- **Corrected** chronological ordering in CHANGELOG.md (removed out-of-sequence version entries)
+- **Enhanced** project documentation with comprehensive change tracking and categorization
+- **Added** application screenshot to README.md for visual preview of the interface on GitHub
+
 ## [1.0.0] - 2025-1207-29 - 📷 **Original Screenshot-Based Release**
 
 ### ✨ **Initial Features**
