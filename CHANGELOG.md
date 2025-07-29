@@ -8,10 +8,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### 🎨 **Major UI/UX Improvements**
 
+#### 🧹 **UI Simplification & Cleanup**
+- **Removed** redundant Market menu items ("Analyze Symbol" and "Refresh Analysis")
+- **Eliminated** duplicate toolbar buttons (Analyze and Refresh)
+- **Streamlined** interface to single "🔄 Refresh Analysis" button in Live Data section
+- **Cleaned up** navigation - removed confusing multiple access points for same functionality
+- **Simplified** user flow - one clear action button for market analysis
+
 #### 🏗️ **Complete Layout Redesign**
 - **Redesigned** main window layout for optimal space utilization (previously 60% wasted space)
 - **Moved** Technical Analysis and Trading Signals to left panel after analysis completion
-- **Expanded** Chart Patterns section to 75% of right panel space (was cramped in small area)
+- **Relocated** Price Predictions to left panel alongside Trading Signals in horizontal layout
+- **Expanded** Chart Patterns to use full right panel space (was sharing with predictions)
+- **Maximized** Technical Analysis section (400px max height) for comprehensive indicator visibility
+- **Optimized** Trading Signals and Price Predictions as side-by-side compact sections (180px each)
 - **Implemented** dynamic layout system that adapts based on analysis state
 - **Added** resizable splitter panels for user customization
 - **Eliminated** excessive scrolling issues in pattern display areas
@@ -56,6 +66,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Added comprehensive QScrollArea and QScrollBar QSS styling for both themes
 - Enhanced scroll area viewport targeting for consistent backgrounds
 - Improved theme switching reliability for all scroll-related components
+- **Fixed** backtest functionality bug where `time_horizon_hours` was incorrectly accessed from prediction object
+- **Fixed** backtest progress dialog not properly closing after completion - replaced QMessageBox with proper QDialog cleanup
 
 ### 📈 **Performance & Reliability**
 - **Optimized** pattern rendering for large datasets (tested with 764+ patterns)

@@ -50,7 +50,8 @@
     "signal_filters": {
       "trend_confirmation": true,
       "volume_confirmation": true,
-      "multiple_timeframe": false
+      "multiple_timeframe": false,
+      "momentum_filter": true
     }
   },
   "ui_config": {

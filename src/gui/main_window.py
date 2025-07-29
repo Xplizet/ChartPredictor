@@ -412,7 +412,7 @@ class ResultsPanel(QWidget):
         tech_group = QGroupBox("Technical Analysis")
         tech_layout = QVBoxLayout(tech_group)
         self.tech_text = QTextEdit()
-        self.tech_text.setMaximumHeight(200)
+        self.tech_text.setMaximumHeight(300)  # Updated to match left panel
         tech_layout.addWidget(self.tech_text)
         
         # Enhanced Pattern Recognition Section
@@ -434,7 +434,7 @@ class ResultsPanel(QWidget):
         signal_group = QGroupBox("Trading Signals")
         signal_layout = QVBoxLayout(signal_group)
         self.signal_text = QTextEdit()
-        self.signal_text.setMaximumHeight(200)
+        self.signal_text.setMaximumHeight(150)  # Updated to match left panel
         signal_layout.addWidget(self.signal_text)
         
         layout.addWidget(tech_group)
@@ -566,79 +566,39 @@ class ResultsPanel(QWidget):
 
 
 class OptimizedResultsPanel(QWidget):
-    """Optimized panel focusing on Chart Patterns and Price Predictions"""
+    """Optimized panel focusing exclusively on Chart Patterns"""
     
     def __init__(self):
         super().__init__()
         self.setup_ui()
         
     def setup_ui(self):
-        """Setup the optimized results panel UI"""
+        """Setup the optimized results panel UI - Chart Patterns only"""
         layout = QVBoxLayout(self)
         layout.setSpacing(12)
         
-        # Chart Patterns Section (Primary - gets most space)
+        # Chart Patterns Section (Now gets ALL the space)
         pattern_group = QGroupBox("Chart Patterns")
         pattern_layout = QVBoxLayout(pattern_group)
         
-        # Enhanced Pattern Recognition with more space
+        # Enhanced Pattern Recognition with full space allocation
         self.pattern_widget = PatternCategoryWidget()
         pattern_layout.addWidget(self.pattern_widget)
         
-        # Price Predictions Section (Secondary)
-        pred_group = QGroupBox("Price Predictions")
-        pred_layout = QVBoxLayout(pred_group)
-        self.pred_text = QTextEdit()
-        self.pred_text.setMaximumHeight(180)  # Slightly larger than before
-        self.pred_text.setMinimumHeight(150)
-        pred_layout.addWidget(self.pred_text)
-        
-        # Add sections with better proportions
-        layout.addWidget(pattern_group, 3)  # 75% of space to patterns
-        layout.addWidget(pred_group, 1)     # 25% of space to predictions
+        # Give patterns the full space (Price Predictions moved to left panel)
+        layout.addWidget(pattern_group)
         
     def update_results(self, results: dict):
-        """Update the display with analysis results"""
+        """Update the display with analysis results - Chart Patterns only"""
         try:
-            # Update patterns with new categorized widget
+            # Update patterns with full focus
             patterns = results.get('patterns', [])
             self.pattern_widget.update_patterns(patterns)
-            
-            # Update predictions
-            predictions = results.get('predictions', {})
-            pred_text = self.format_predictions(predictions)
-            self.pred_text.setPlainText(pred_text)
             
         except Exception as e:
             logger.error(f"Failed to update results display: {e}")
             import traceback
             logger.error(f"Traceback: {traceback.format_exc()}")
-    
-    def format_predictions(self, predictions) -> str:
-        """Format predictions data for display"""
-        if not predictions:
-            return "No predictions available"
-            
-        text = []
-        
-        # Handle both dict and object formats
-        if hasattr(predictions, 'direction'):
-            direction = predictions.direction
-            confidence = predictions.confidence
-            target_price = predictions.target_price
-            time_horizon = predictions.time_horizon
-        else:
-            direction = predictions.get('direction', 'Unknown')
-            confidence = predictions.get('confidence', 0)
-            target_price = predictions.get('target_price', 0)
-            time_horizon = predictions.get('time_horizon', 'Unknown')
-        
-        text.append(f"🎯 Direction: {direction}")
-        text.append(f"📊 Confidence: {confidence:.1%}")
-        text.append(f"💰 Target Price: ${target_price:.2f}")
-        text.append(f"⏰ Time Horizon: {time_horizon}")
-        
-        return "\n".join(text)
 
 
 class MainWindow(QMainWindow):
@@ -659,7 +619,6 @@ class MainWindow(QMainWindow):
         
         self.setup_ui()
         self.setup_menu()
-        self.setup_toolbar()
         self.setup_statusbar()
         
         # Apply window settings
@@ -713,9 +672,9 @@ class MainWindow(QMainWindow):
         
         symbol_layout.addLayout(controls_layout)
         
-        # Action buttons
+        # Action buttons - Simple refresh button only
         buttons_layout = QHBoxLayout()
-        self.fetch_btn = QPushButton("🔄 Analyze Market Data")
+        self.fetch_btn = QPushButton("🔄 Refresh Analysis")
         self.fetch_btn.clicked.connect(self.fetch_live_data)
         self.fetch_btn.setDefault(True)  # Make it the default button
         buttons_layout.addWidget(self.fetch_btn)
@@ -754,23 +713,8 @@ class MainWindow(QMainWindow):
         main_layout.addWidget(splitter)
         
     def setup_menu(self):
-        """Setup application menu"""
+        """Setup application menu bar"""
         menubar = self.menuBar()
-        
-        # Market menu
-        market_menu = menubar.addMenu("&Market")
-        
-        analyze_action = QAction("&Analyze Symbol...", self)
-        analyze_action.setShortcut("Ctrl+A")
-        analyze_action.triggered.connect(self.focus_symbol_input)
-        market_menu.addAction(analyze_action)
-        
-        market_menu.addSeparator()
-        
-        refresh_action = QAction("&Refresh Analysis", self)
-        refresh_action.setShortcut("F5")
-        refresh_action.triggered.connect(self.fetch_live_data)
-        market_menu.addAction(refresh_action)
         
         # File menu
         file_menu = menubar.addMenu("&File")
@@ -808,26 +752,10 @@ class MainWindow(QMainWindow):
         about_action.triggered.connect(self.show_about)
         help_menu.addAction(about_action)
         
-    def setup_toolbar(self):
-        """Setup application toolbar"""
-        toolbar = self.addToolBar("Main")
-        
-        analyze_action = QAction("🔄 Analyze", self)
-        analyze_action.setToolTip("Analyze market data (Ctrl+A)")
-        analyze_action.triggered.connect(self.focus_symbol_input)
-        toolbar.addAction(analyze_action)
-        
-        toolbar.addSeparator()
-        
-        refresh_action = QAction("🔄 Refresh", self)
-        refresh_action.setToolTip("Refresh current analysis (F5)")
-        refresh_action.triggered.connect(self.fetch_live_data)
-        toolbar.addAction(refresh_action)
-        
     def setup_statusbar(self):
         """Setup status bar"""
         self.status_bar = self.statusBar()
-        self.status_label = QLabel("Ready")
+        self.status_label = QLabel("Enter symbol and click Refresh Analysis to start")
         self.status_bar.addWidget(self.status_label)
         
 
@@ -866,11 +794,6 @@ class MainWindow(QMainWindow):
         """Update progress bar and status"""
         self.progress_bar.setValue(percentage)
         self.status_label.setText(message)
-        
-    def focus_symbol_input(self):
-        """Focus on symbol input field for quick access"""
-        self.symbol_input.setFocus()
-        self.symbol_input.selectAll()
         
     def live_analysis_complete(self, results: dict):
         """Handle completed live data analysis"""
@@ -1890,18 +1813,24 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "Incomplete Data", "Current analysis doesn't contain sufficient data for backtesting.")
             return
         
+        # Create and show progress dialog
+        progress_dialog = QDialog(self)
+        progress_dialog.setWindowTitle("Running Backtest")
+        progress_dialog.setModal(True)
+        progress_dialog.setFixedSize(300, 120)
+        
+        layout = QVBoxLayout(progress_dialog)
+        progress_label = QLabel("Running backtesting analysis...\n\nThis may take a few moments.")
+        progress_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        layout.addWidget(progress_label)
+        
+        progress_dialog.show()
+        
+        # Process events to show dialog
+        from PyQt6.QtWidgets import QApplication
+        QApplication.processEvents()
+        
         try:
-            # Show progress dialog
-            progress_dialog = QMessageBox(self)
-            progress_dialog.setWindowTitle("Running Backtest")
-            progress_dialog.setText("Running backtesting analysis...\n\nThis may take a few moments.")
-            progress_dialog.setStandardButtons(QMessageBox.StandardButton.NoButton)
-            progress_dialog.show()
-            
-            # Process events to show dialog
-            from PyQt6.QtWidgets import QApplication
-            QApplication.processEvents()
-            
             # Run backtest
             prediction = self.current_analysis['predictions']
             chart_data = self.current_analysis['chart_data']
@@ -1909,8 +1838,12 @@ class MainWindow(QMainWindow):
             
             backtest_results = self.predictor.backtest_prediction(prediction, historical_data)
             
-            # Close progress dialog
+            # Properly close and destroy progress dialog
             progress_dialog.close()
+            progress_dialog.deleteLater()
+            
+            # Process events to ensure dialog is destroyed
+            QApplication.processEvents()
             
             # Show results
             self.show_backtest_results(backtest_results)
@@ -1920,8 +1853,11 @@ class MainWindow(QMainWindow):
             
         except Exception as e:
             logger.error(f"Backtesting error: {e}")
-            if 'progress_dialog' in locals():
+            # Ensure progress dialog is properly closed in case of error
+            if progress_dialog:
                 progress_dialog.close()
+                progress_dialog.deleteLater()
+                QApplication.processEvents()
             QMessageBox.critical(
                 self, "Backtesting Error",
                 f"An error occurred during backtesting:\n{str(e)}"
@@ -2045,12 +1981,12 @@ class MainWindow(QMainWindow):
                 if child:
                     child.setParent(None)
             
-            # Technical Analysis Section (moved to left panel)
+            # Technical Analysis Section (moved to left panel) - GREATLY EXPANDED
             tech_group = QGroupBox("Technical Analysis")
             tech_layout = QVBoxLayout(tech_group)
             tech_text = QTextEdit()
-            tech_text.setMaximumHeight(200)
-            tech_text.setMinimumHeight(150)
+            tech_text.setMaximumHeight(400)  # Increased from 300 to 400
+            tech_text.setMinimumHeight(300)  # Increased from 200 to 300
             
             # Format and set technical analysis data
             tech_data = results.get('technical_analysis', {})
@@ -2060,11 +1996,16 @@ class MainWindow(QMainWindow):
             tech_layout.addWidget(tech_text)
             self.left_results_layout.addWidget(tech_group)
             
-            # Trading Signals Section (moved to left panel)
+            # Horizontal layout for Trading Signals and Price Predictions
+            bottom_section = QWidget()
+            bottom_layout = QHBoxLayout(bottom_section)
+            bottom_layout.setSpacing(10)
+            
+            # Trading Signals Section (left side of bottom)
             signal_group = QGroupBox("Trading Signals")
             signal_layout = QVBoxLayout(signal_group)
             signal_text = QTextEdit()
-            signal_text.setMaximumHeight(200)
+            signal_text.setMaximumHeight(180)  # Slightly taller for better visibility
             signal_text.setMinimumHeight(150)
             
             # Format and set trading signals data
@@ -2073,13 +2014,62 @@ class MainWindow(QMainWindow):
             signal_text.setPlainText(signal_formatted)
             
             signal_layout.addWidget(signal_text)
-            self.left_results_layout.addWidget(signal_group)
+            
+            # Price Predictions Section (right side of bottom) 
+            pred_group = QGroupBox("Price Predictions")
+            pred_layout = QVBoxLayout(pred_group)
+            pred_text = QTextEdit()
+            pred_text.setMaximumHeight(180)  # Match trading signals height
+            pred_text.setMinimumHeight(150)
+            
+            # Format and set predictions data
+            predictions = results.get('predictions', {})
+            pred_formatted = self.format_predictions(predictions)
+            pred_text.setPlainText(pred_formatted)
+            
+            pred_layout.addWidget(pred_text)
+            
+            # Add both sections to horizontal layout
+            bottom_layout.addWidget(signal_group)
+            bottom_layout.addWidget(pred_group)
+            
+            # Add the horizontal section to main layout
+            self.left_results_layout.addWidget(bottom_section)
             
             # Show the left results container
             self.left_results_container.setVisible(True)
             
         except Exception as e:
             logger.error(f"Failed to populate left panel results: {e}")
+    
+    def format_predictions(self, predictions) -> str:
+        """Format predictions data for display"""
+        if not predictions:
+            return "No predictions available"
+            
+        text = []
+        
+        # Handle both dict and object formats
+        if hasattr(predictions, 'direction'):
+            direction = predictions.direction
+            confidence = predictions.confidence
+            target_price = predictions.target_price
+            time_horizon = predictions.time_horizon
+        else:
+            direction = predictions.get('direction', 'Unknown')
+            confidence = predictions.get('confidence', 0)
+            target_price = predictions.get('target_price', 0)
+            time_horizon = predictions.get('time_horizon', 'Unknown')
+        
+        # Add direction indicator
+        direction_indicator = "📈" if direction == "UP" else "📉" if direction == "DOWN" else "➡️"
+        
+        text.append(f"{direction_indicator} Direction: {direction}")
+        text.append(f"📊 Confidence: {confidence:.1%}")
+        text.append(f"🎯 Target: ${target_price:.2f}")
+        text.append(f"⏰ Horizon: {time_horizon}")
+        
+        return "\n".join(text)
     
     def format_technical_analysis(self, tech_data: dict) -> str:
         """Format technical analysis data for display"""

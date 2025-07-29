@@ -759,7 +759,7 @@ class ChartPredictor:
         trades = []
         
         # Simulate making predictions at different points in history
-        for i in range(lookback_window, len(prices) - prediction.time_horizon_hours):
+        for i in range(lookback_window, len(prices) - self.time_horizon_hours):
             try:
                 # Get historical data up to this point
                 historical_prices = prices[:i]
@@ -769,7 +769,7 @@ class ChartPredictor:
                 
                 # Get actual outcome after prediction horizon
                 current_price = prices[i]
-                future_price = prices[min(i + prediction.time_horizon_hours, len(prices) - 1)]
+                future_price = prices[min(i + self.time_horizon_hours, len(prices) - 1)]
                 
                 actual_direction = "UP" if future_price > current_price else "DOWN" if future_price < current_price else "SIDEWAYS"
                 actual_change = (future_price - current_price) / current_price
