@@ -220,7 +220,6 @@ Access comprehensive settings via **Tools → Settings**:
 ### Support
 - **GitHub Issues**: Bug reports and feature requests
 - **Community Forum**: User discussions and tips
-- **Email**: support@chartpredictor.com
 
 ## 🤝 Contributing
 We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
