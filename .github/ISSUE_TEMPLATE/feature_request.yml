@@ -1,0 +1,174 @@
+name: ✨ Feature Request
+description: Suggest a new feature or enhancement for ChartPredictor
+title: "[Feature]: "
+labels: ["enhancement"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a new feature! Please provide as much detail as possible to help us understand your request.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: Describe the problem you're trying to solve or the need this feature would address
+      placeholder: |
+        As a [type of user], I want to [goal/desire] so that [benefit/value].
+        
+        Currently, when I [current situation], I experience [problem/pain point].
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe your proposed solution in detail
+      placeholder: |
+        I would like to see [detailed description of the feature].
+        
+        This feature would work by [explanation of functionality].
+        
+        The user would interact with it by [user workflow].
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Describe any alternative solutions or features you've considered
+      placeholder: |
+        I also considered [alternative approach] but [reason why proposed solution is better].
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Feature Category
+      description: What category does this feature belong to?
+      options:
+        - Technical Analysis (new indicators, patterns)
+        - Data Sources (new APIs, data providers)
+        - User Interface (UI/UX improvements)
+        - Export/Reporting (new formats, layouts)
+        - Performance (speed, optimization)
+        - Configuration (settings, customization)
+        - Backtesting (strategy testing, metrics)
+        - Risk Management (position sizing, stops)
+        - Multi-Asset Support (new asset classes)
+        - Automation (alerts, scheduled analysis)
+        - Integration (APIs, third-party tools)
+        - Documentation (guides, examples)
+        - Other
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this feature to you?
+      options:
+        - Critical (blocks my workflow)
+        - High (significantly improves experience)
+        - Medium (nice to have)
+        - Low (minor improvement)
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Estimated Complexity
+      description: How complex do you think this feature would be to implement?
+      options:
+        - Simple (minor changes, configuration options)
+        - Medium (new functionality, moderate changes)
+        - Complex (major feature, architectural changes)
+        - Unknown (I'm not sure)
+
+  - type: textarea
+    id: use_cases
+    attributes:
+      label: Use Cases
+      description: Provide specific examples of how this feature would be used
+      placeholder: |
+        Use Case 1: [Specific scenario and workflow]
+        Use Case 2: [Another scenario]
+        Use Case 3: [Additional scenario]
+
+  - type: textarea
+    id: mockups
+    attributes:
+      label: Mockups/Examples
+      description: Include any mockups, diagrams, or examples that illustrate your idea
+      placeholder: |
+        Attach images, diagrams, or describe the visual/functional aspects:
+        - UI mockups
+        - Workflow diagrams  
+        - Example outputs
+        - Similar features in other tools
+
+  - type: checkboxes
+    id: user_types
+    attributes:
+      label: Target Users
+      description: Which types of users would benefit from this feature?
+      options:
+        - label: Day Traders (short-term, high-frequency trading)
+        - label: Swing Traders (medium-term position trading)
+        - label: Long-term Investors (buy and hold strategies)
+        - label: Financial Analysts (research and reporting)
+        - label: Algorithm Developers (quantitative strategies)
+        - label: Portfolio Managers (multi-asset management)
+        - label: Educational Users (learning technical analysis)
+        - label: All Users
+
+  - type: checkboxes
+    id: compatibility
+    attributes:
+      label: Compatibility Considerations
+      description: What compatibility aspects should be considered?
+      options:
+        - label: Should work with existing configurations
+        - label: Backward compatibility with current data formats
+        - label: Cross-platform compatibility (Windows, macOS, Linux)
+        - label: Performance impact should be minimal
+        - label: Should integrate with existing export formats
+        - label: API compatibility for third-party integrations
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: What specific criteria would make this feature complete and successful?
+      placeholder: |
+        This feature would be considered complete when:
+        - [ ] [Specific requirement 1]
+        - [ ] [Specific requirement 2]
+        - [ ] [Specific requirement 3]
+        - [ ] [Testing requirement]
+        - [ ] [Documentation requirement]
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Are you interested in contributing to this feature?
+      options:
+        - label: I would like to work on implementing this feature
+        - label: I can help with testing this feature
+        - label: I can provide domain expertise or feedback
+        - label: I can help with documentation
+        - label: I'm only requesting the feature
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Add any other context, links, or information about the feature request
+      placeholder: |
+        - Links to relevant resources, papers, or similar implementations
+        - Market data or research supporting the feature
+        - Timeline considerations
+        - Integration requirements
+        - Any other relevant information

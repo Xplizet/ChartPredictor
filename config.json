@@ -1,0 +1,68 @@
+{
+  "app_version": "0.1.0",
+  "debug_mode": false,
+  "dark_theme": true,
+  "window_width": 1200,
+  "window_height": 800,
+  "models_dir": "data\\models",
+  "cache_dir": "data\\cache",
+  "exports_dir": "exports",
+  "logs_dir": "logs",
+  "ml_model_config": {
+    "pattern_recognition_model": "cnn_pattern_v1.h5",
+    "price_prediction_model": "lstm_predictor_v1.h5",
+    "ensemble_model": "ensemble_v1.pkl",
+    "confidence_threshold": 0.7,
+    "prediction_horizon": 24
+  },
+  "technical_config": {
+    "indicators": {
+      "rsi": true,
+      "macd": true,
+      "bollinger_bands": true,
+      "moving_averages": true,
+      "volume": true,
+      "stochastic": true,
+      "williams_r": true,
+      "cci": false,
+      "atr": false
+    },
+    "rsi_period": 14,
+    "macd_periods": [
+      12,
+      26,
+      9
+    ],
+    "bb_period": 20,
+    "bb_std_dev": 2.0,
+    "ma_periods": [
+      9,
+      21,
+      50,
+      200
+    ]
+  },
+  "trading_config": {
+    "risk_tolerance": "medium",
+    "max_risk_per_trade": 0.02,
+    "stop_loss_multiplier": 2.0,
+    "take_profit_multiplier": 3.0,
+    "signal_filters": {
+      "trend_confirmation": true,
+      "volume_confirmation": true,
+      "multiple_timeframe": false
+    }
+  },
+  "ui_config": {
+    "theme": "dark",
+    "window_geometry": null,
+    "recent_files_limit": 10,
+    "auto_save_analysis": true,
+    "show_tooltips": true,
+    "animation_duration": 300
+  },
+  "max_concurrent_predictions": 3,
+  "cache_predictions": true,
+  "auto_cleanup_cache": true,
+  "cache_retention_days": 7
+}

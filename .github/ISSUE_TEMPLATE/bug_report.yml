@@ -1,0 +1,138 @@
+name: 🐛 Bug Report
+description: Report a bug or unexpected behavior in ChartPredictor
+title: "[Bug]: "
+labels: ["bug"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a bug! Please fill out this form as completely as possible.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Describe what happened...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Open ChartPredictor
+        2. Enter symbol 'AAPL'
+        3. Click 'Analyze'
+        4. See error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen
+      placeholder: Describe what should have happened...
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened
+      placeholder: Describe what actually happened...
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Information
+      description: Please provide details about your environment
+      placeholder: |
+        - OS: [e.g., Windows 11, macOS 14.2, Ubuntu 22.04]
+        - Python Version: [e.g., 3.11.5]
+        - ChartPredictor Version: [e.g., 2.0.0]
+        - Dependencies: [any relevant package versions]
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log Output
+      description: Please include any relevant log output from the logs/ directory
+      placeholder: Paste log output here...
+      render: text
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your problem
+      placeholder: Drag and drop screenshots here...
+
+  - type: dropdown
+    id: analysis_type
+    attributes:
+      label: Analysis Type
+      description: What type of analysis were you running when the bug occurred?
+      options:
+        - Stock Analysis
+        - Cryptocurrency Analysis
+        - Forex Analysis
+        - Commodities Analysis
+        - ETF Analysis
+        - Other
+        - Not Applicable
+
+  - type: input
+    id: symbol
+    attributes:
+      label: Symbol/Ticker
+      description: What symbol were you analyzing when the bug occurred?
+      placeholder: e.g., AAPL, BTC-USD, EURUSD=X
+
+  - type: dropdown
+    id: timeframe
+    attributes:
+      label: Timeframe
+      description: What timeframe were you using?
+      options:
+        - 1m
+        - 5m
+        - 15m
+        - 30m
+        - 1h
+        - 4h
+        - 1d
+        - 1w
+        - Not Applicable
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      description: Please confirm the following before submitting
+      options:
+        - label: I have searched existing issues to ensure this bug hasn't been reported
+          required: true
+        - label: I have checked the documentation and FAQ
+          required: true
+        - label: I have included all relevant information above
+          required: true
+        - label: I understand this is for reporting bugs, not asking questions
+          required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here
+      placeholder: Any additional information that might be helpful...

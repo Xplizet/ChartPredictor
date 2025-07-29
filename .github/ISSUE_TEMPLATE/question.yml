@@ -1,0 +1,75 @@
+name: ❓ Question
+description: Ask a question about ChartPredictor usage or functionality
+title: "[Question]: "
+labels: ["question"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before asking a question, please check:
+        - [Documentation](docs/getting_started.md)
+        - [README](README.md)
+        - [Existing Issues](https://github.com/username/ChartPredictor/issues)
+        - [Discussions](https://github.com/username/ChartPredictor/discussions)
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Question Category
+      description: What category does your question belong to?
+      options:
+        - Installation & Setup
+        - Usage & Configuration
+        - Technical Analysis
+        - Data Sources & Symbols
+        - Export & Reporting
+        - Performance & Troubleshooting
+        - Development & Contributing
+        - Other
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: Please describe your question clearly and provide context
+      placeholder: |
+        What would you like to know about ChartPredictor?
+        
+        Provide as much context as possible to help us give you the best answer.
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context & Background
+      description: Provide relevant context about what you're trying to achieve
+      placeholder: |
+        - What are you trying to accomplish?
+        - What have you already tried?
+        - What documentation have you consulted?
+        - Are there any specific constraints or requirements?
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment (if relevant)
+      description: Please provide environment details if relevant to your question
+      placeholder: |
+        - OS: [e.g., Windows 11, macOS 14, Ubuntu 22.04]
+        - Python Version: [e.g., 3.11.5]
+        - ChartPredictor Version: [e.g., 2.0.0]
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have searched existing issues and discussions
+          required: true
+        - label: I have checked the documentation
+          required: true
+        - label: This is a question, not a bug report or feature request
+          required: true
