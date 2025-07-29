@@ -7,7 +7,8 @@ numpy==1.24.3
 pandas==2.1.4
 
 # Technical Analysis
-TA-Lib==0.4.28
+# TA-Lib is optional - fallback to basic indicators if not available
+TA-Lib==0.4.28; sys_platform != "win32"  # Skip on Windows CI if problematic
 yfinance==0.2.28
 
 # Configuration & Utilities

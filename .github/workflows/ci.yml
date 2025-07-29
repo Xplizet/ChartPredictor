@@ -26,6 +26,20 @@ jobs:
         python-version: '3.11'
         cache: 'pip'
         
+    - name: 🔧 Install TA-Lib System Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential wget
+        # Download and install TA-Lib C library
+        wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
+        tar -xzf ta-lib-0.4.0-src.tar.gz
+        cd ta-lib/
+        ./configure --prefix=/usr
+        make
+        sudo make install
+        cd ..
+        sudo ldconfig
+        
     - name: 📦 Install Dependencies
       run: |
         python -m pip install --upgrade pip
@@ -57,6 +71,20 @@ jobs:
       with:
         python-version: '3.11'
         cache: 'pip'
+        
+    - name: 🔧 Install TA-Lib System Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential wget
+        # Download and install TA-Lib C library
+        wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
+        tar -xzf ta-lib-0.4.0-src.tar.gz
+        cd ta-lib/
+        ./configure --prefix=/usr
+        make
+        sudo make install
+        cd ..
+        sudo ldconfig
         
     - name: 📦 Install Security Tools
       run: |
@@ -96,6 +124,32 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
         cache: 'pip'
+        
+    - name: 🔧 Install TA-Lib System Dependencies (Linux)
+      if: runner.os == 'Linux'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential wget
+        # Download and install TA-Lib C library
+        wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
+        tar -xzf ta-lib-0.4.0-src.tar.gz
+        cd ta-lib/
+        ./configure --prefix=/usr
+        make
+        sudo make install
+        cd ..
+        sudo ldconfig
+        
+    - name: 🔧 Install TA-Lib System Dependencies (macOS)
+      if: runner.os == 'macOS'
+      run: |
+        brew install ta-lib
+        
+    - name: 🔧 Install TA-Lib System Dependencies (Windows)
+      if: runner.os == 'Windows'
+      run: |
+        # Use pre-built TA-Lib wheel for Windows
+        pip install --find-links https://github.com/cgohlke/talib-build/releases/latest/download/ TA-Lib || echo "TA-Lib installation failed, will use fallback"
         
     - name: 🖥️ Setup Display (Linux)
       if: runner.os == 'Linux'
@@ -155,6 +209,20 @@ jobs:
         python-version: '3.11'
         cache: 'pip'
         
+    - name: 🔧 Install TA-Lib System Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential wget
+        # Download and install TA-Lib C library
+        wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
+        tar -xzf ta-lib-0.4.0-src.tar.gz
+        cd ta-lib/
+        ./configure --prefix=/usr
+        make
+        sudo make install
+        cd ..
+        sudo ldconfig
+        
     - name: 📦 Install Build Dependencies
       run: |
         python -m pip install --upgrade pip
@@ -187,6 +255,20 @@ jobs:
       with:
         python-version: '3.11'
         cache: 'pip'
+        
+    - name: 🔧 Install TA-Lib System Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential wget
+        # Download and install TA-Lib C library
+        wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
+        tar -xzf ta-lib-0.4.0-src.tar.gz
+        cd ta-lib/
+        ./configure --prefix=/usr
+        make
+        sudo make install
+        cd ..
+        sudo ldconfig
         
     - name: 🖥️ Setup Display
       run: |
