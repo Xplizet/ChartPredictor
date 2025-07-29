@@ -18,7 +18,7 @@ Before installing ChartPredictor, ensure you have:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/username/ChartPredictor.git
+git clone https://github.com/xplizet/ChartPredictor.git
 cd ChartPredictor
 ```
 

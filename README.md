@@ -107,7 +107,7 @@ ChartPredictor/
 
 ```bash
 # Clone the repository
-git clone https://github.com/username/ChartPredictor.git
+git clone https://github.com/xplizet/ChartPredictor.git
 cd ChartPredictor
 
 # Create virtual environment (recommended)

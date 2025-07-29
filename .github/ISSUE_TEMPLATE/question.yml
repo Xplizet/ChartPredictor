@@ -11,8 +11,8 @@ body:
         Before asking a question, please check:
         - [Documentation](docs/getting_started.md)
         - [README](README.md)
-        - [Existing Issues](https://github.com/username/ChartPredictor/issues)
-        - [Discussions](https://github.com/username/ChartPredictor/discussions)
+        - [Existing Issues](https://github.com/xplizet/ChartPredictor/issues)
+        - [Discussions](https://github.com/xplizet/ChartPredictor/discussions)
 
   - type: dropdown
     id: category

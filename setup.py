@@ -14,7 +14,7 @@ setup(
     description="Desktop application for trading chart analysis and prediction",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/username/ChartPredictor",
+    url="https://github.com/xplizet/ChartPredictor",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     classifiers=[

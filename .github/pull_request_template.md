@@ -184,7 +184,7 @@ If you have questions about this PR, please:
 
 1. Comment on specific lines of code
 2. Use the GitHub review feature
-3. Mention @username for urgent questions
+3. Mention @xplizet for urgent questions
 
 ---
 

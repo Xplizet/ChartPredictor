@@ -379,8 +379,8 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 
 ## 📞 **Support**
 
-- **GitHub Issues**: [Report bugs and request features](https://github.com/username/ChartPredictor/issues)
-- **Discussions**: [Community discussions and tips](https://github.com/username/ChartPredictor/discussions)
+- **GitHub Issues**: [Report bugs and request features](https://github.com/xplizet/ChartPredictor/issues)
+- **Discussions**: [Community discussions and tips](https://github.com/xplizet/ChartPredictor/discussions)
 - **Email**: support@chartpredictor.com (if available)
 
 ---

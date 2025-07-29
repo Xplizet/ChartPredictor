@@ -15,7 +15,7 @@ We welcome contributions to ChartPredictor! This document provides guidelines fo
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/ChartPredictor.git
+   git clone https://github.com/xplizet/ChartPredictor.git
    cd ChartPredictor
    ```
 
