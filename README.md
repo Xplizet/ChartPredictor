@@ -9,6 +9,19 @@ ChartPredictor is a professional desktop application that provides real-time mar
 
 *ChartPredictor's intuitive desktop interface showing live market analysis, pattern detection, technical indicators, and trading signals in a clean, professional layout.*
 
+## ⚠️ Development Status
+
+**ChartPredictor is currently in active development and should be considered an early preview release.** While the core functionality is operational, please be aware that:
+
+- 🔧 **Features may change** without notice as we refine the user experience
+- 🐛 **Some functionality may be unstable** or produce unexpected results
+- 📊 **Trading signals and predictions** are for educational/research purposes only
+- 💾 **Data and configuration formats** may change between versions
+
+**Not recommended for production trading decisions.** Please use this tool for learning, experimentation, and providing feedback to help improve the application.
+
+**Want to contribute?** We welcome bug reports, feature suggestions, and code contributions to help make ChartPredictor more reliable and feature-complete.
+
 ## 🚀 Key Features
 
 ### 📊 Live Market Data Analysis
