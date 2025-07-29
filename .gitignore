@@ -163,3 +163,4 @@ build/
 dist/
 *.spec
 memory.md
+PROJECT_SUMMARY.md
