@@ -290,6 +290,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - **Corrected** chronological ordering in CHANGELOG.md (removed out-of-sequence version entries)
 - **Enhanced** project documentation with comprehensive change tracking and categorization
 - **Added** application screenshot to README.md for visual preview of the interface on GitHub
+- **Added** development status disclaimer to README.md setting proper expectations for early preview release
 
 ## [1.0.0] - 2025-1207-29 - 📷 **Original Screenshot-Based Release**
 
